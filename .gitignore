@@ -1,0 +1,12 @@
+# Dependency Directories
+/node_modules
+/backend/venv
+/frontend/node_modules
+
+# Build Artifacts
+/frontend/build
+/backend/__pycache__
+/backend/*.pyc
+
+# Environment and Secrets
+.env

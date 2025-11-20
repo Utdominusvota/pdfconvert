@@ -1,0 +1,26 @@
+# --- STAGE 1: Build the React Application (Node Environment) ---
+FROM node:20-alpine AS build
+
+WORKDIR /app
+# Copy the dependency files first for efficient caching
+COPY package.json package-lock.json ./
+
+# Install dependencies and build (creates the 'build' directory)
+RUN npm install
+COPY . .
+RUN npm run build 
+# The build output (static files) will be in /app/build
+
+# --- STAGE 2: Serve the Static Files with Nginx (Production Environment) ---
+FROM nginx:alpine
+
+# CRITICAL: Copy the custom Nginx config file into the container
+# This config handles static serving and the /api/ proxying.
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy the static build files from the 'build' stage (Stage 1)
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+# Command to keep Nginx running in the foreground
+CMD ["nginx", "-g", "daemon off;"]

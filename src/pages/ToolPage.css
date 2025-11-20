@@ -1,0 +1,971 @@
+/* .tool-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #233044;
+}
+
+.tool-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tool-section {
+  padding: 2rem;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.tool-section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.options-panel {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.option-item {
+  margin-bottom: 1rem;
+}
+
+.option-item:last-child {
+  margin-bottom: 0;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #374151;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.option-label:hover {
+  color: #667eea;
+}
+
+.option-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+.option-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+.option-label input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  accent-color: #667eea;
+}
+
+.option-label input[type="text"],
+.option-label input[type="number"],
+.option-label select,
+.option-label textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.option-label input:focus,
+.option-label select:focus,
+.option-label textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.range-value {
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 50px;
+  text-align: center;
+}
+
+.process-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.process-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.process-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.config-item {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.config-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.config-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+}
+
+.file-preview {
+  background: #f8f9fa;
+  border: 2px dashed #e1e5e9;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.file-preview.has-files {
+  border-color: #4ade80;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.preview-icon {
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.preview-text {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.rotation-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.rotation-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.rotation-option:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.rotation-option input[type="radio"] {
+  margin: 0;
+}
+
+.rotation-option input[type="radio"]:checked + .rotation-icon + .rotation-label {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.rotation-option:has(input[type="radio"]:checked) {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f2ff 100%);
+}
+
+.rotation-icon {
+  font-size: 1.5rem;
+  width: 24px;
+  text-align: center;
+}
+
+.rotation-label {
+  font-size: 0.9rem;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.option-help {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
+
+.permissions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.permission-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.permission-item:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.permission-item input[type="checkbox"] {
+  margin: 0;
+}
+
+.signature-canvas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.clear-signature-btn {
+  padding: 0.5rem 1rem;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  align-self: flex-start;
+  transition: background 0.2s ease;
+}
+
+.clear-signature-btn:hover {
+  background: #5a6268;
+}
+
+.tp-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.tp-input-file {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.tp-selected {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #444;
+}
+
+.tp-param-row {
+  margin-bottom: 12px;
+}
+
+.tp-param-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.tp-query-note {
+  font-style: normal;
+  color: #0066ff;
+  margin-left: 8px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.tp-input,
+.tp-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e3e6ea;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.tp-button {
+  padding: 10px 16px;
+  background: #0066ff;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tp-button[disabled] {
+  background: #9fb9ff;
+  cursor: not-allowed;
+}
+
+.tp-error {
+  margin-top: 12px;
+  color: #c0392b;
+  background: #fff6f6;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.tp-download {
+  padding: 10px 14px;
+  background: #28a745;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.tp-json {
+  margin-top: 12px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.merge-pdf-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.merge-header {
+  margin-bottom: 30px;
+}
+
+.merge-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.merge-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.upload-section {
+  border: 2px dashed #ccc;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.upload-button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #005bb5;
+}
+
+.upload-instructions {
+  margin-top: 10px;
+  color: #888;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .upload-section {
+    padding: 20px;
+  }
+
+  .upload-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    align-items: center;
+  }
+
+  .upload-instructions {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .upload-instructions {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tool-page {
+    padding: 1rem 0;
+  }
+  
+  .tool-section {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+  }
+  
+  .config-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .rotation-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.file-list {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+  color: #555;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+}
+
+.remove-file-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove-file-button:hover {
+  background-color: #e60000;
+}
+
+.merge-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.merge-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+*/
+
+
+/* --- Global & Page Container (Modern Base) --- */
+.tool-page {
+    /* Center content on screen */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: #f7f9fc; /* Very light background */
+    text-align: center;
+}
+
+.tool-page > h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.tool-page > p {
+    color: #7f8c8d;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* --- Main Content Area (Card Look) --- */
+/* Apply a soft card background and shadow to the main content wrapper */
+.tool-page > div:not(.tp-error):not(.tp-json) {
+    background: white;
+    border-radius: 16px; /* Modern rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.03); /* Soft, modern shadow */
+    padding: 30px;
+    width: 100%;
+    /* Ensure internal flex layout handles file/secondary file inputs */
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+/* Fix for the initial layout structure inside the card */
+.tool-page > div > div {
+    width: 100%; /* Ensure internal sections fill the card width */
+    max-width: 100%;
+}
+
+
+/* --- File Input Styling (Primary File) --- */
+.tp-input-file {
+    /* Style the actual file input to look like a modern drop zone */
+    display: block;
+    width: 100%;
+    padding: 40px 20px; /* Increased padding for a larger drop area appearance */
+    border: 2px dashed #bbdefb; /* Light blue dashed border */
+    border-radius: 12px;
+    background-color: #e3f2fd; /* Very light blue background */
+    font-size: 1rem;
+    
+    margin: 0 auto; /* Remove margin from tool-page style */
+    text-align: center;
+    cursor: pointer;
+    color: transparent; /* Hide default "No file chosen" text visually */
+    
+}
+
+/* Add an icon/text overlay to the file input (though actual content requires JS) */
+.tp-input-file::before {
+    content: 'Choose Files or Drag & Drop Here';
+    display: block;
+    color: #B91C1C; /* #42a5f5 Primary blue color */
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.tp-input-file:hover {
+    border-color: #42a5f5; 
+    background-color: #eef7ff;
+}
+
+.tp-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    text-align: left;
+    padding-top: 10px; /* Add a little space above label */
+}
+
+.tp-selected {
+    margin-top: 5px;
+    padding: 10px;
+    background: #f0f4f7;
+    border-radius: 8px;
+    text-align: left;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.tp-selected ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 5px 0 0 0;
+}
+
+.tp-selected ul li {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 2px;
+}
+
+/* Secondary file input (if requiredTwoFiles is true) */
+/* Target the actual file input for the secondary file and make it look like a standard field */
+/* Since secondary file input is not hidden, we can style it like a clean standard input */
+.tool-page input[type="file"]:not(.tp-input-file) {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+
+/* --- Options/Parameter Styling --- */
+h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.tp-param-row {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.tp-param-label {
+    /* Ensures labels for parameters look good */
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #444;
+}
+
+.tp-input,
+.tp-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.tp-input:focus,
+.tp-select:focus {
+    outline: none;
+    border-color: #0073e6;
+    box-shadow: 0 0 0 2px rgba(0, 115, 230, 0.2);
+}
+
+/* --- Upload/Process Button --- */
+.tp-button {
+    /* Use the primary blue for the main action */
+    padding: 14px 30px; 
+    background: #0073e6; /* Vibrant Primary Blue */
+    color: #fff;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 115, 230, 0.3);
+    min-width: 280px;
+    margin-top: 10px;
+}
+
+.tp-button:hover:not([disabled]) {
+    background: #005bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 115, 230, 0.4);
+}
+
+.tp-button[disabled] {
+    background: #b0c4de;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Feedback and Download --- */
+.tp-error {
+    margin-top: 20px;
+    color: #c0392b;
+    background: #ffebeb;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #c0392b;
+    font-weight: 500;
+    width: 100%;
+}
+
+.tp-download {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #27ae60; /* Success green */
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.tp-download:hover {
+    background: #1e8449;
+}
+
+/* --- Merge PDF Specific Styles (if toolName is 'merge-pdf') --- */
+/* Ensure the merge-pdf component also looks modern */
+
+.merge-pdf-page {
+    /* Inherit global look */
+    min-height: 100vh;
+    background-color: #f7f9fc; 
+    padding: 2rem 1rem;
+    text-align: center;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.merge-main {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.03); 
+    padding: 30px;
+}
+
+.upload-section {
+    border: 2px dashed #bbdefb;
+    padding: 50px 20px;
+    margin: 20px 0;
+    background-color: #e3f2fd; 
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.upload-section:hover {
+    border-color: #42a5f5; 
+    background-color: #eef7ff;
+}
+
+.upload-button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-weight: 600;
+}
+
+.upload-button:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+.upload-instructions {
+    margin-top: 15px;
+    color: #64b5f6;
+    font-size: 0.95rem;
+}
+
+.file-list {
+    margin: 20px 0;
+    max-width: 100%;
+    text-align: left;
+}
+
+.file-item {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: #fff;
+    transition: box-shadow 0.2s;
+}
+
+.file-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.remove-file-button {
+    background-color: #e74c3c; /* Red color for removal */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-file-button:hover {
+    background-color: #c0392b;
+}
+
+.merge-button {
+    /* Style the main merge button like the tp-button */
+    background: #27ae60; /* Use Green for Merge action */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 16px 30px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    width: 100%;
+}
+
+.merge-button:hover:not([disabled]) {
+    background: #1e8449;
+    transform: translateY(-2px);
+}
+
+.merge-button:disabled {
+    background: #a9d4b4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .tool-page > div:not(.tp-error):not(.tp-json) {
+        padding: 20px;
+    }
+
+    .tool-page > h1 {
+        font-size: 2rem;
+    }
+
+    .tp-input-file {
+        padding: 30px 15px;
+    }
+
+    .tp-button,
+    .merge-button {
+        min-width: 100%;
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .upload-section {
+        padding: 30px 15px;
+    }
+}

@@ -1,0 +1,190 @@
+/* ...existing code... */
+.tools-section {
+  position: relative;
+  z-index: 0;
+  padding: 100px 0;
+  background: #F5F5FA;
+}
+
+/* container to constrain content and add horizontal padding */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* header */
+.tools-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* filters */
+.tools-filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  flex-wrap: wrap;
+  margin: 20px ;
+}
+
+.tools-filters button {
+  background: #fff;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  padding: 8px 18px;
+  border-radius: 9999px; /* Pill shape */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.tools-filters button:not(.active):hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+  color: #1f2937;
+}
+
+/* Active filter button style (Set to Red) */
+.tools-filters button.active {
+  background: #dc2626; /* PRIMARY RED */
+  color: white;
+  border-color: #dc2626;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4); /* RED Shadow */
+}
+
+/* Ensure active button hover is subtle */
+.tools-filters button.active:hover {
+  background: #b91c1c; /* Darker Red Hover */
+  border-color: #b91c1c;
+}
+
+/* responsive grid: auto-fit makes items wrap instead of overflow */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 0 auto;
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+
+.tool-link {
+  text-decoration: none;
+}
+/* cards: flexible column so content pushes bottom elements */
+.tool-card {
+  background: #fff;
+  border: 1px solid #e6e6ea;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 250px;
+  transition: all 0.28s ease;
+  cursor: pointer;
+}
+.tool-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #dc2626; /* Set to Primary Red */
+  line-height: 1.2;
+}
+
+/* make icon and content scale nicely */
+.tool-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fef2f2;
+  color: #dc2626;
+  transition: all 0.28s ease;
+  flex-shrink: 0;
+}
+
+/* description grows to fill card */
+.tool-description {
+  color: #6b7280;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+/* hover states */
+.tool-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px rgba(15, 23, 42, 0.08);
+  border-color: #dc2626;
+}
+
+.tool-card:hover .tool-icon {
+  background: #dc2626;
+  color: #fff;
+  transform: scale(1.06);
+}
+
+/* responsive breakpoints */
+@media (max-width: 1200px) {
+  .tools-grid { gap: 18px; }
+}
+
+@media (max-width: 1024px) {
+  .tools-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .tools-section { padding: 60px 0; }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .tool-card { padding: 18px; min-height: 180px; }
+}
+
+@media (max-width: 480px) {
+  .tools-grid { grid-template-columns: 1fr; gap: 12px; }
+  .container { padding: 0 16px; }
+}
+.new-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #10b981; /* High-contrast green for "New" */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 5;
+    transform: rotate(3deg);
+}
+.tools-header .section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.tools-header .section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #dc2626; /* PRIMARY RED ACCENT */
+  border-radius: 2px;
+  margin: 8px auto 0;
+}

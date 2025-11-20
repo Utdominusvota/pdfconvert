@@ -1,0 +1,147 @@
+.uploader-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: #0066ff;
+}
+
+.dropzone.secondary {
+  background-color: #f5f5f5;
+}
+
+.drop-content {
+  color: #666;
+}
+
+.drop-content p {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.drop-content small {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.selected-files {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.selected-files h4 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.selected-files ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.selected-files li {
+  padding: 5px 0;
+  color: #666;
+}
+
+.parameters {
+  margin: 20px 0;
+}
+
+.parameter-field {
+  margin: 15px 0;
+}
+
+.parameter-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.parameter-field input,
+.parameter-field select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.upload-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover:not(:disabled) {
+  background-color: #0052cc;
+}
+
+.upload-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.secondary-file {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.secondary-file label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.secondary-file input {
+  width: 100%;
+}
+
+.error-message {
+  color: #dc3545;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fee;
+  border-radius: 4px;
+}
+
+.result-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #218838;
+}
