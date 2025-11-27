@@ -1,4 +1,4 @@
-# iLovePDF Clone - React Application
+ - React Application
 
 A modern React clone of the iLovePDF website, featuring a clean and responsive design with all the essential PDF tools and functionality.
 
