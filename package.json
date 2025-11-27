@@ -1,7 +1,13 @@
 {
+
   "name": "etviola-pdf",
   "version": "1.0.0",
   "description": "Etviola  website",
+
+  "name": "etviola-pdf",
+  "version": "1.0.0",
+  "description": "Etviola website",
+
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
