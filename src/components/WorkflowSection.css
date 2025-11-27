@@ -1,12 +1,10 @@
-/* ...existing code... */
 .workflow-section {
   position: relative;
   z-index: 0;
-  padding: 100px 0; /* match ToolsSection so spacing is consistent */
+  padding: 100px 0;
   background: #f9fafb;
 }
 
-/* container: reuse same sizing as tools */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -44,7 +42,6 @@
   box-shadow: 0 16px 36px rgba(2, 6, 23, 0.08);
 }
 
-/* icon */
 .workflow-icon {
   width: 72px;
   height: 72px;
@@ -57,7 +54,6 @@
   color: #dc2626;
 }
 
-/* cta button */
 .btn-primary-large {
   background: #dc2626;
   color: white;
@@ -70,7 +66,6 @@
   box-shadow: 0 6px 20px rgba(220, 38, 38, 0.14);
 }
 
-/* responsive */
 @media (max-width: 768px) {
   .workflow-section { padding: 60px 0; }
   .workflow-grid { grid-template-columns: 1fr; gap: 20px; }
