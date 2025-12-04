@@ -1,5 +1,5 @@
 // Base URL for your FastAPI backend
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://194.147.95.217:8000';
 
 // Maximum allowed upload size (50 MB)
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB in bytes
