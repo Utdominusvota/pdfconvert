@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'http://194.147.95.217:8000';
 
 export const ENDPOINTS = {
   // PDF Conversion endpoints
