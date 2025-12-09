@@ -239,7 +239,7 @@ export default function ToolPage({ language }) {
 
       setUploading(true);
       try {
-        const response = await axios.post('http://127.0.0.1:8000/merge-pdfs/', formData, {
+        const response = await axios.post('/api/merge-pdfs/', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
           responseType: 'arraybuffer',
         });
